@@ -70,9 +70,9 @@ namespace RoadDefectsService.Core.Application.Services
                 return ExecutionResult<CreateFixationResponseDTO>.FromError(checkResult);
             }
 
-            if (task.FixationDefectId.HasValue)
+            if (task.FixationWorkId.HasValue)
             {
-                return new(StatusCodeExecutionResult.NotFound, "TaskNotFound", $"The task with id {createFixationWork.TaskFixationWorkId} already has a defect fixation with id {task.FixationDefectId}!");
+                return new(StatusCodeExecutionResult.NotFound, "TaskNotFound", $"The task with id {createFixationWork.TaskFixationWorkId} already has a work fixation with id {task.FixationWorkId}!");
             }
 
             FixationWorkEntity fixationWork = new()
