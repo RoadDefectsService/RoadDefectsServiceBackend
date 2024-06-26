@@ -68,10 +68,10 @@ namespace RoadDefectsService.Core.Application.Services
             }
 
             bool deleteResult = _fileService.DeleteFile(photo.PathName);
-            if (!deleteResult)
-            {
-                return new(StatusCodeExecutionResult.InternalServer, "DeletePhotoFail", "Error while deleting a photo!");
-            }
+            //if (!deleteResult)
+            //{
+            //    return new(StatusCodeExecutionResult.InternalServer, "DeletePhotoFail", "Error while deleting a photo!");
+            //}
 
             await _photoRepository.DeleteAsync(photo);
 
