@@ -29,6 +29,7 @@ namespace RoadDefectsService.Infrastructure.Identity.Repositories
         public async Task<List<TaskEntity>> GetAllByFilterAsync(TaskFilterDTO taskFilter, Guid inspectorId)
         {
             return await ApplyFilter(taskFilter, inspectorId)
+                .Include(task => task.NextTask)
                 .Skip((taskFilter.Page - 1) * taskFilter.Size)
                 .Take(taskFilter.Size)
                 .ToListAsync();

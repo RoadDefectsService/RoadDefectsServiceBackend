@@ -10,6 +10,10 @@ namespace RoadDefectsService.Core.Application.CQRS.Task.Utils
         {
             CreateMap<TaskEntity, TaskDTO>()
                .ForMember(
+                   taskDTO => taskDTO.ExistNextTask,
+                   options => options.MapFrom(taskEntity => taskEntity.NextTask != null)
+               )
+               .ForMember(
                    taskDTO => taskDTO.ExistRoadInspector,
                    options => options.MapFrom(taskEntity => taskEntity.RoadInspectorId != null)
                )

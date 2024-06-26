@@ -12,5 +12,6 @@ namespace RoadDefectsService.Core.Application.CQRS.Task.DTOs
         public required StatusTask TaskStatus { get; set; }
         public required bool ExistRoadInspector { get; set; }
         public required bool ExistDefectInfo { get; set; }
+        public required bool ExistNextTask { get; set; }
     }
 }
