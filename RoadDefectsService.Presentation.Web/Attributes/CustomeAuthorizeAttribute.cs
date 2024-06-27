@@ -27,7 +27,7 @@ namespace RoadDefectsService.Presentation.Web.Attributes
         private void Forbid(AuthorizationFilterContext context, string key, string message)
         {
             context.HttpContext.Response.Headers.TryAdd(key, message);
-            context.Result = new ForbidResult();
+            context.Result = new UnauthorizedResult();
         }
     }
 }
